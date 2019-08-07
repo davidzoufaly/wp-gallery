@@ -2,10 +2,16 @@
 Gallery plugin for wordpress
 
 ## Technologies
-PHP, jQuery
+- PHP
+- jQuery
 
 ## Dependencies
-Wordpress, ACF plugin
+- Wordpress
+- ACF plugin
+
+## Installation
+1. copy folder to /plugins directory in wordpress
+2. activate plugin in WP administration -> installated plugins
 
 ## License
 - MIT
