@@ -1,0 +1,64 @@
+
+<?php $perpage = 12; $pages = 0; $itemWidth = 100 / $perpage; ?>
+
+        <div class="rbacfgallery">
+            <div class="rbacfgallery__wrapper">
+
+                <div class="rbacfgallery__page active">
+                    <?php $page_counter = 0; ?>
+                    <?php if(get_field('gallery') ): ?>
+                    <?php foreach(get_field('gallery') as $img ): ?>
+
+                    <?php if( $page_counter == $perpage): ?>
+                    <?php $pages++; ?>
+                    <?php $page_counter = 1; ?>
+                    </div><div class="rbacfgallery__page">
+                    <?php else: ?>
+                        <?php $page_counter++ ?>
+                    <?php endif; ?>
+
+                    <div class="rbacfgallery__item">
+                        <a class="swipebox rbacfgallery__img" href="<?php echo $img['sizes']['large'] ?>">
+
+
+                                                <span class="gallery__placeholder">
+                                                    <img class="gallery__placeholder__inner" src="<?php echo $img['sizes']['rbacfgallery'] ?>" alt="<?php echo $img['alt']?>">
+                                                </span>
+
+                            <?php if(strlen($img['caption']) > 0 ): ?><span class="rbacfgallery__title"><?php echo mb_substr($img['caption'], 0, 40) ?><?php if(strlen($img['caption']) > 40): ?>...<?php endif;?></span><?php endif; ?>
+
+                        </a>
+                    </div>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <?php if( $pages ): ?>
+                <div class="rbacfgallery__pagination js-rbacfgallery-pagination">
+                    <ul>
+                        <?php for( $i = 0; $i <= $pages; $i++ ): ?>
+                            <li><a class="<?php echo $i == 0 ? 'active' : '' ?>" href="#<?php echo $i; ?>"><?php echo $i + 1; ?></a></li>
+                        <?php endfor; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+
+
+            <div class="rbacfgallery__slick js-rbacfgallery__slick">
+                <?php foreach( get_field('gallery') as $img ): ?>
+                    <div class="rbacfgallery__mobile-item">
+                        <a class="swipebox rbacfgallery__img" href="<?php echo $img['sizes']['large'] ?>">
+
+                                                <span class="gallery__placeholder">
+                                                    <img class="gallery__placeholder__inner" src="<?php echo $img['sizes']['rbacfgallery'] ?>" alt="<?php echo $img['alt']?>">
+                                                </span>
+
+                              <?php if(strlen($img['caption']) > 0) : ?><span class="rbacfgallery__title"><?php echo mb_substr($img['title'], 0, 60) ?><?php if(strlen($img['caption']) > 40): ?>...<?php endif;?></span><?php endif; ?>
+
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+        </div>
