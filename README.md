@@ -17,4 +17,4 @@ Gallery plugin for wordpress
 - MIT
 
 ## Disclaimer
-This plugin was originally coded by Radim Brounek under GPLv2. I just improved his code. 
+This plugin was originally coded by Radim Brounek under GPLv2. I have just improved his code. 
