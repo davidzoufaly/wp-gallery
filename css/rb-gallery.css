@@ -72,7 +72,7 @@
 }
 
 .rbacfgallery__img img{
-	max-width: 100%;
+	width: 100%;
 	height: auto;
 }
 
@@ -126,7 +126,8 @@
 
 .gallery__placeholder{
     position: relative;
-    display: block;
+	display: block;
+	overflow: hidden;
 }
 
 .gallery__placeholder:before{

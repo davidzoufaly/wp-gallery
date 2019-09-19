@@ -8,14 +8,21 @@
 		Text Domain: rbacfgallery
 	*/
 
-	wp_enqueue_style( 'rb-gallery', plugins_url( 'css/rb-gallery.css', __FILE__ ), array(), '20180729');
-	wp_enqueue_style( 'rb-gallery-slick', plugins_url( 'css/slick.css', __FILE__ ), array(), '20180729');
-	wp_enqueue_style( 'swipebox', plugins_url( 'css/swipebox.min.css', __FILE__ ), array(), '20180729');
-	wp_enqueue_style( 'rb-gallery-icons', plugins_url( 'icomoon/style.css', __FILE__ ), array(), '20180729');
+	add_action('wp_enqueue_scripts', 'gallery_styles');
+	add_action('wp_enqueue_scripts', 'gallery_scripts');
 
-	wp_enqueue_script( 'swipebox', plugins_url( 'js/jquery.swipebox.min.js', __FILE__ ), array(), '20180729', true);
-	wp_enqueue_script( 'rb-gallery-slick', plugins_url( 'js/slick.min.js', __FILE__ ), array(), '20180729', true);
-	wp_enqueue_script( 'rb-gallery', plugins_url( 'js/rb-gallery.js', __FILE__ ), array(), '20180729', true);
+	function gallery_styles() {
+		wp_enqueue_style( 'rb-gallery', plugins_url( 'css/rb-gallery.css', __FILE__ ), array(), '20180729');
+		wp_enqueue_style( 'rb-gallery-slick', plugins_url( 'css/slick.css', __FILE__ ), array(), '20180729');
+		wp_enqueue_style( 'swipebox', plugins_url( 'css/swipebox.min.css', __FILE__ ), array(), '20180729');
+		wp_enqueue_style( 'rb-gallery-icons', plugins_url( 'icomoon/style.css', __FILE__ ), array(), '20180729');
+	}
+	
+	function gallery_scripts() {
+		wp_enqueue_script( 'swipebox', plugins_url( 'js/jquery.swipebox.min.js', __FILE__ ), array(), '20180729', true);
+		wp_enqueue_script( 'rb-gallery-slick', plugins_url( 'js/slick.min.js', __FILE__ ), array(), '20180729', true);
+		wp_enqueue_script( 'rb-gallery', plugins_url( 'js/rb-gallery.js', __FILE__ ), array(), '20180729', true);
+	}
 
 	define( 'rbacfgallery_COLS', 5 );
 	define( 'rbacfgallery_PERPAGE', 10 );
