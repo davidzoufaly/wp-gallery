@@ -160,6 +160,7 @@
 
 
                     <div class="rbacfgallery__slick js-rbacfgallery__slick">
+					<?php if($images): ?>
                         <?php foreach( $images as $img ): ?>
                             <div class="rbacfgallery__mobile-item">
                                 <a class="swipebox rbacfgallery__img" alt="<?php echo $img['title']?>" title="<?php echo $img['caption']?>" href="<?php echo $img['sizes']['large'] ?>">
@@ -171,7 +172,8 @@
                                     <?php if($view_desc && strlen($img['caption']) > 0) : ?><span class="rbacfgallery__title"><?php echo mb_substr($img['title'], 0, 60) ?><?php if(strlen($img['caption']) > 40): ?>...<?php endif;?></span><?php endif; ?>
                                 </a>
                             </div>
-                        <?php endforeach; ?>
+						<?php endforeach; ?>
+					<?php endif; ?>
                     </div>
 
 				</div>
